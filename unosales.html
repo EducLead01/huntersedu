@@ -66,6 +66,13 @@
             background:rgba(231,158,20,0.08); border:1px solid rgba(231,158,20,0.2); color:#E79E14;
         }
 
+        table.cmp { width:100%; border-collapse: collapse; }
+        table.cmp th, table.cmp td { padding:14px 16px; text-align:left; font-size:13px; border-bottom:1px solid rgba(255,255,255,0.06); }
+        table.cmp th { color:#E79E14; font-weight:900; text-transform:uppercase; font-size:11px; letter-spacing:0.1em; }
+        table.cmp td { color:rgba(255,255,255,0.6); }
+        table.cmp tr:last-child td { border-bottom:none; }
+        table.cmp td.hl { color:#fff; font-weight:700; }
+
         /* ─── Presentation-style slide navigation (PowerPoint-like) ─── */
         html, body { overflow-x: hidden; }
         #slides-viewport { overflow: hidden; }
@@ -112,14 +119,14 @@
 <section id="hero" class="slide flex items-center justify-center pt-36 pb-12 bg-el-black">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
 
-        <p class="text-el-yellow text-xs font-black uppercase tracking-[0.35em] mb-5">Estratégia 2026</p>
+        <p class="text-el-yellow text-xs font-black uppercase tracking-[0.35em] mb-5">Estratégia 2026 · Embaixador Virtual</p>
         <h1 class="font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tighter uppercase mb-6">
             Nova Estratégia de<br>
             <span class="gradient-text">Posicionamento</span> de Marca<br>
             Colégio Uno Sales
         </h1>
         <p class="text-white/50 text-lg md:text-xl font-light max-w-2xl mx-auto">
-            Do conteúdo digital à imprensa local: como o Uno Sales se comunica, se posiciona e constrói autoridade na região.
+            Do conteúdo digital à imprensa local, até um Embaixador Virtual com IA: como o Uno Sales se comunica, se posiciona e domina o território.
         </p>
 
     </div>
@@ -261,6 +268,153 @@
     </div>
 </section>
 
+<!-- ─── EMBAIXADOR VIRTUAL: O PROBLEMA ─────────────────── -->
+<section id="problema" class="slide py-20 bg-[#0D0D0D]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <p class="text-el-yellow text-xs font-black uppercase tracking-[0.35em] mb-3">Embaixador Virtual · O Problema</p>
+            <h2 class="font-black text-3xl md:text-4xl uppercase tracking-tight">
+                O Modelo <span class="gradient-text">Tradicional</span> Está Morrendo
+            </h2>
+            <p class="text-white/40 mt-3 text-sm max-w-2xl mx-auto">Folder, outdoor e post estático no Instagram custam caro e não falam a língua de quem decide a matrícula: Gerações Z e Alpha vivem em vídeo vertical diário — não em anúncio parado.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="card group">
+                <div class="flex items-center gap-4 mb-5">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center font-black text-el-black text-sm flex-shrink-0" style="background:#E79E14;">01</div>
+                    <div><h3 class="font-black text-lg uppercase tracking-tight">Custo Alto e Fixo</h3><div class="bar mt-1"></div></div>
+                </div>
+                <p class="text-white/40 text-sm leading-relaxed">Estúdio, agência tradicional e contratação de atores ou influenciadores encarecem cada peça de conteúdo — e o custo não cai com o volume.</p>
+            </div>
+            <div class="card group">
+                <div class="flex items-center gap-4 mb-5">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center font-black text-el-black text-sm flex-shrink-0" style="background:#E79E14;">02</div>
+                    <div><h3 class="font-black text-lg uppercase tracking-tight">Dependência Humana</h3><div class="bar mt-1"></div></div>
+                </div>
+                <p class="text-white/40 text-sm leading-relaxed">Cobrar que professores e alunos gravem vídeos é o maior gargalo do marketing educacional — ninguém quer aparecer na câmera todo dia.</p>
+            </div>
+            <div class="card group">
+                <div class="flex items-center gap-4 mb-5">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center font-black text-el-black text-sm flex-shrink-0" style="background:#E79E14;">03</div>
+                    <div><h3 class="font-black text-lg uppercase tracking-tight">Baixo Volume</h3><div class="bar mt-1"></div></div>
+                </div>
+                <p class="text-white/40 text-sm leading-relaxed">Poucos posts por mês não sustentam o algoritmo de plataformas que exigem publicação diária para gerar alcance.</p>
+            </div>
+            <div class="card group" style="border-color:rgba(231,158,20,0.2);">
+                <div class="flex items-center gap-4 mb-5">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center font-black text-el-black text-sm flex-shrink-0" style="background:#E79E14;">04</div>
+                    <div><h3 class="font-black text-lg uppercase tracking-tight">Alcance Genérico</h3><div class="bar mt-1"></div></div>
+                </div>
+                <p class="text-white/40 text-sm leading-relaxed">Sem hiperlocalização, o conteúdo se perde entre concorrentes que já falam diretamente com o bairro e a cidade.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── EMBAIXADOR VIRTUAL: A SOLUÇÃO ──────────────────── -->
+<section id="solucao" class="slide py-20 bg-el-black">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <p class="text-el-yellow text-xs font-black uppercase tracking-[0.35em] mb-3">Embaixador Virtual · A Solução</p>
+            <h2 class="font-black text-3xl md:text-4xl uppercase tracking-tight">
+                AI-born IPs na <span class="gradient-text">Educação</span>
+            </h2>
+            <p class="text-white/40 mt-3 text-sm max-w-2xl mx-auto">Um personagem 100% criado por IA — "Estudante Virtual", "Professor Mentor" ou mascote 3D do Uno Sales — que revoluciona a comunicação porque é patrimônio da marca: não se forma, não pede aumento, não muda de emprego.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div class="card group">
+                <div class="flex items-center gap-4 mb-5">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center font-black text-el-black text-sm flex-shrink-0" style="background:#E79E14;">01</div>
+                    <div><h3 class="font-black text-lg uppercase tracking-tight">Estudante Virtual</h3><div class="bar mt-1"></div></div>
+                </div>
+                <p class="text-white/40 text-sm leading-relaxed">Mostra a rotina do Uno Sales, bastidores e o dia a dia da escola com a linguagem nativa de quem vai se matricular.</p>
+            </div>
+            <div class="card group">
+                <div class="flex items-center gap-4 mb-5">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center font-black text-el-black text-sm flex-shrink-0" style="background:#E79E14;">02</div>
+                    <div><h3 class="font-black text-lg uppercase tracking-tight">Professor Mentor</h3><div class="bar mt-1"></div></div>
+                </div>
+                <p class="text-white/40 text-sm leading-relaxed">Dá dicas de ENEM, vestibular e escolha de carreira — autoridade pedagógica publicada todos os dias, sem depender de agenda.</p>
+            </div>
+            <div class="card group" style="border-color:rgba(231,158,20,0.2);">
+                <div class="flex items-center gap-4 mb-5">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center font-black text-el-black text-sm flex-shrink-0" style="background:#E79E14;">03</div>
+                    <div><h3 class="font-black text-lg uppercase tracking-tight">Mascote 3D</h3><div class="bar mt-1"></div></div>
+                </div>
+                <p class="text-white/40 text-sm leading-relaxed">Identidade visual própria e reconhecível do Uno Sales, presente em todo conteúdo institucional e de captação.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── EMBAIXADOR VIRTUAL: VANTAGENS COMPETITIVAS ─────── -->
+<section id="vantagens" class="slide py-20 bg-[#0D0D0D]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <p class="text-el-yellow text-xs font-black uppercase tracking-[0.35em] mb-3">Embaixador Virtual · Fator Economia</p>
+            <h2 class="font-black text-3xl md:text-4xl uppercase tracking-tight">
+                Tradicional vs <span class="gradient-text">Fábrica de Conteúdo IA</span>
+            </h2>
+            <p class="text-white/40 mt-3 text-sm max-w-2xl mx-auto">Mesmo investimento, resultado incomparável em volume, disponibilidade e risco.</p>
+        </div>
+
+        <div class="rounded-3xl overflow-hidden mb-8" style="border:1px solid rgba(255,255,255,0.08);">
+            <table class="cmp">
+                <tr><th>Critério</th><th>Modelo Tradicional</th><th>Fábrica de Conteúdo IA</th></tr>
+                <tr><td class="hl">Custo por vídeo</td><td>Alto — estúdio, ator, edição</td><td>Fixo e baixo, escalável</td></tr>
+                <tr><td class="hl">Disponibilidade</td><td>Depende da agenda de terceiros</td><td>24 horas por dia, 7 dias por semana</td></tr>
+                <tr><td class="hl">Volume mensal</td><td>Poucos vídeos por mês</td><td>30 a 60 vídeos por mês</td></tr>
+                <tr><td class="hl">Riscos</td><td>Trabalhista, imagem, desgaste</td><td>Nenhum risco de imagem ou vínculo</td></tr>
+                <tr><td class="hl">Idiomas</td><td>1, com custo extra por idioma</td><td>Multilíngue nativo</td></tr>
+            </table>
+        </div>
+
+        <div class="rounded-3xl overflow-hidden" style="border:1px solid rgba(231,158,20,0.2);">
+            <table class="cmp">
+                <tr><th>Conceito</th><th>Adaptação Uno Sales</th><th>Benefício Direto</th></tr>
+                <tr><td class="hl">AI-born IP</td><td>Embaixador virtual do Uno Sales</td><td>Patrimônio de marca — não se perde com formatura ou troca de professor</td></tr>
+                <tr><td class="hl">Fábrica de vídeos</td><td>Esteira de conteúdo educacional diário</td><td>Fim do "ninguém quer aparecer na câmera"</td></tr>
+                <tr><td class="hl">Distribuição global</td><td>Dominação do Setor Leste Vila Nova</td><td>Algoritmo prioriza quem fala da cidade</td></tr>
+                <tr><td class="hl">Motor flywheel</td><td>Otimização contínua de captação</td><td>Custo por lead menor na temporada de matrículas</td></tr>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- ─── EMBAIXADOR VIRTUAL: DOMINAÇÃO DE TERRITÓRIO ────── -->
+<section id="territorio" class="slide py-20 bg-el-black">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <p class="text-el-yellow text-xs font-black uppercase tracking-[0.35em] mb-3">Embaixador Virtual · Geomarketing + IA</p>
+            <h2 class="font-black text-3xl md:text-4xl uppercase tracking-tight">
+                Dominação do <span class="gradient-text">Setor Leste Vila Nova</span>
+            </h2>
+            <p class="text-white/40 mt-3 text-sm max-w-2xl mx-auto">O embaixador virtual fala a língua do bairro — e o algoritmo entrega mais conteúdo para quem está na mesma cidade.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="flex gap-3 items-start bg-[#111] rounded-2xl p-5 border border-white/[0.06]">
+                <span class="step-num mt-0.5"><i class="fas fa-map-pin text-[10px]"></i></span>
+                <div><p class="font-bold text-sm text-white mb-1">Cultura Local</p><p class="text-white/40 text-xs leading-relaxed">Gírias, pontos conhecidos e rotina de Goiânia no discurso do embaixador.</p></div>
+            </div>
+            <div class="flex gap-3 items-start bg-[#111] rounded-2xl p-5 border border-white/[0.06]">
+                <span class="step-num mt-0.5"><i class="fas fa-calendar-days text-[10px]"></i></span>
+                <div><p class="font-bold text-sm text-white mb-1">Eventos do Bairro</p><p class="text-white/40 text-xs leading-relaxed">Comentários e presença em datas e eventos da comunidade do Setor Leste Vila Nova.</p></div>
+            </div>
+            <div class="flex gap-3 items-start bg-[#111] rounded-2xl p-5 border border-white/[0.06]">
+                <span class="step-num mt-0.5"><i class="fas fa-graduation-cap text-[10px]"></i></span>
+                <div><p class="font-bold text-sm text-white mb-1">Provas Regionais</p><p class="text-white/40 text-xs leading-relaxed">Dicas sobre vestibulares locais (UFG, PUC Goiás) que geram busca orgânica na região.</p></div>
+            </div>
+            <div class="flex gap-3 items-start bg-[#111] rounded-2xl p-5 border border-white/[0.06]">
+                <span class="step-num mt-0.5"><i class="fas fa-bullseye text-[10px]"></i></span>
+                <div><p class="font-bold text-sm text-white mb-1">Relevância Algorítmica</p><p class="text-white/40 text-xs leading-relaxed">Mais entregas para o público da mesma cidade — dominação nas buscas locais.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ─── TIKTOK ─────────────────────────────────────────── -->
 <section id="tiktok" class="slide py-20 bg-[#0D0D0D]">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -366,8 +520,48 @@
     </div>
 </section>
 
+<!-- ─── EMBAIXADOR VIRTUAL: CICLO DE EXECUÇÃO ──────────── -->
+<section id="execucao" class="slide py-20 bg-[#0D0D0D]">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <p class="text-el-yellow text-xs font-black uppercase tracking-[0.35em] mb-3">Embaixador Virtual · Execução</p>
+            <h2 class="font-black text-3xl md:text-4xl uppercase tracking-tight">
+                Ciclo de <span class="gradient-text">Execução</span> em 3 Etapas
+            </h2>
+        </div>
+
+        <div class="relative space-y-5">
+            <div class="absolute left-5 top-10 bottom-10 w-px" style="background:rgba(231,158,20,0.2);"></div>
+
+            <div class="flex gap-6 items-start group">
+                <div class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center font-black text-sm z-10" style="background:#E79E14;color:#0A0A0A;">01</div>
+                <div class="flex-1 bg-[#111111] rounded-2xl p-6 border border-white/[0.06] group-hover:border-el-yellow/25 transition-all duration-300">
+                    <h3 class="font-black text-base uppercase tracking-tight mb-2">Criação da Identidade</h3>
+                    <p class="text-white/40 text-sm leading-relaxed">Definição de aparência, voz, personalidade e nome do Embaixador Virtual do Uno Sales.</p>
+                </div>
+            </div>
+
+            <div class="flex gap-6 items-start group">
+                <div class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center font-black text-sm z-10" style="background:#E79E14;color:#0A0A0A;">02</div>
+                <div class="flex-1 bg-[#111111] rounded-2xl p-6 border border-white/[0.06] group-hover:border-el-yellow/25 transition-all duration-300">
+                    <h3 class="font-black text-base uppercase tracking-tight mb-2">Produção e Distribuição em Massa</h3>
+                    <p class="text-white/40 text-sm leading-relaxed">Geração diária de vídeos verticais para TikTok, Reels e Shorts, com chamadas de matrícula e avisos.</p>
+                </div>
+            </div>
+
+            <div class="flex gap-6 items-start group">
+                <div class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center font-black text-sm z-10" style="background:#E79E14;color:#0A0A0A;">03</div>
+                <div class="flex-1 bg-[#111111] rounded-2xl p-6 border border-white/[0.06] group-hover:border-el-yellow/25 transition-all duration-300">
+                    <h3 class="font-black text-base uppercase tracking-tight mb-2">Otimização por Dados</h3>
+                    <p class="text-white/40 text-sm leading-relaxed">Testes de ganchos e formatos escalados com base em matrícula e engajamento real, reduzindo o CAC.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ─── IMPRENSA ───────────────────────────────────────── -->
-<section id="imprensa" class="slide py-20 bg-[#0D0D0D]">
+<section id="imprensa" class="slide py-20 bg-el-black">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
             <p class="text-el-yellow text-xs font-black uppercase tracking-[0.35em] mb-3">Assessoria de Imprensa</p>
@@ -435,6 +629,26 @@
     </div>
 </section>
 
+<!-- ─── EMBAIXADOR VIRTUAL: CTA ─────────────────────────── -->
+<section id="cta" class="slide flex items-center justify-center py-20 bg-[#0D0D0D]">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-el-yellow text-xs font-black uppercase tracking-[0.35em] mb-5">Próximos Passos</p>
+        <h2 class="font-black text-3xl sm:text-4xl md:text-5xl leading-[1.05] tracking-tighter uppercase mb-6">
+            A escola que não se adaptar agora<br>
+            vai <span class="gradient-text">perder território</span>
+        </h2>
+        <p class="text-white/50 text-lg font-light max-w-xl mx-auto mb-10">
+            Enquanto o Uno Sales decide, a concorrência do Setor Leste Vila Nova pode sair na frente. O embaixador virtual é a forma mais rápida e barata de ocupar esse espaço primeiro.
+        </p>
+        <a href="https://wa.me/5562982587808?text=Ol%C3%A1!%20Quero%20implementar%20o%20Embaixador%20Virtual%20com%20IA%20no%20Col%C3%A9gio%20Uno%20Sales."
+           target="_blank" rel="noopener"
+           class="inline-flex items-center gap-3 font-black text-sm uppercase tracking-wider px-7 py-3.5 rounded-xl transition-all hover:opacity-90"
+           style="background:#E79E14;color:#0A0A0A;">
+            Quero Implementar no Uno Sales
+        </a>
+    </div>
+</section>
+
 </div>
 </div>
 </main>
@@ -451,7 +665,7 @@
     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="#E79E14" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6"/></svg>
 </button>
 <div id="deck-counter" class="fixed z-[95] text-[10px] font-black tracking-widest px-3 py-1.5 rounded-full"
-    style="bottom:20px; left:50%; transform:translateX(-50%); color:rgba(231,158,20,0.85); background:rgba(17,17,17,0.85);border:1px solid rgba(231,158,20,0.2);backdrop-filter:blur(8px);">1/6</div>
+    style="bottom:20px; left:50%; transform:translateX(-50%); color:rgba(231,158,20,0.85); background:rgba(17,17,17,0.85);border:1px solid rgba(231,158,20,0.2);backdrop-filter:blur(8px);">1/12</div>
 
 <!-- ─── FOOTER ────────────────────────────────────────── -->
 <footer class="py-12" style="background:#050505;border-top:1px solid rgba(255,255,255,0.04);">
