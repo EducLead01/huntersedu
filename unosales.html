@@ -91,36 +91,16 @@
 <!-- ─── NAV ──────────────────────────────────────────── -->
 <header class="fixed top-0 w-full z-50" style="background:rgba(10,10,10,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.05);">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-center md:justify-between h-20 relative">
+        <div class="flex items-center justify-between h-20 relative">
 
             <a href="/" class="flex items-center gap-3">
                 <span class="font-black text-lg tracking-tight">Educ <span class="gradient-text">Lead</span></span>
             </a>
 
-            <nav class="hidden md:flex items-center gap-5 text-xs font-semibold">
-                <a href="#posicionamento" class="nav-link">Posicionamento</a>
-                <a href="#marca-pessoal"  class="nav-link">Marca Pessoal</a>
-                <a href="#tiktok"         class="nav-link">TikTok</a>
-                <a href="#blog"           class="nav-link">Blog</a>
-                <a href="#imprensa"       class="nav-link">Imprensa</a>
-            </nav>
-
-            <button onclick="toggleWa()" class="hidden md:block font-black text-xs uppercase tracking-wide px-4 py-2.5 rounded-lg transition-all" style="background:#E79E14;color:#0A0A0A;">
+            <button onclick="toggleWa()" class="font-black text-xs uppercase tracking-wide px-4 py-2.5 rounded-lg transition-all" style="background:#E79E14;color:#0A0A0A;">
                 Suporte
             </button>
-
-            <button class="md:hidden text-white absolute right-0" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
         </div>
-    </div>
-    <div id="mobile-menu" class="hidden md:hidden border-t border-white/5 bg-[#0A0A0A] px-4 pb-4 pt-2 space-y-1">
-        <a href="#posicionamento" class="block nav-link py-2 text-sm font-semibold text-center">Posicionamento</a>
-        <a href="#marca-pessoal"  class="block nav-link py-2 text-sm font-semibold text-center">Marca Pessoal</a>
-        <a href="#tiktok"         class="block nav-link py-2 text-sm font-semibold text-center">TikTok</a>
-        <a href="#blog"           class="block nav-link py-2 text-sm font-semibold text-center">Blog</a>
-        <a href="#imprensa"       class="block nav-link py-2 text-sm font-semibold text-center">Imprensa</a>
-        <button onclick="toggleWa();document.getElementById('mobile-menu').classList.add('hidden')" class="block w-full font-black text-sm uppercase tracking-wider px-6 py-3 rounded-lg text-center mt-2" style="background:#E79E14;color:#0A0A0A;">Suporte</button>
     </div>
 </header>
 
