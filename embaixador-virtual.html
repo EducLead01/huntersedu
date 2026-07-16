@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colégio Uno Sales | Embaixador Virtual — Proposta IA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'el-black':  '#0A0A0A',
+                        'el-gray':   '#111111',
+                        'el-yellow': '#E79E14',
+                        'el-white':  '#FFFFFF',
+                    },
+                    fontFamily: {
+                        display: ['Inter', 'sans-serif'],
+                        sans:    ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { scroll-behavior: smooth; }
+        ::selection { background: #E79E14; color: #0A0A0A; }
+        body { font-family: 'Inter', sans-serif; background: #0A0A0A; color: #fff; }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0A0A0A; }
+        ::-webkit-scrollbar-thumb { background: #E79E14; border-radius: 10px; }
+
+        .gradient-text {
+            background: linear-gradient(to right, #E79E14, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card {
+            background: #111111;
+            border-radius: 24px;
+            padding: 32px;
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: all 0.3s ease;
+        }
+        .card:hover { border-color: rgba(231,158,20,0.3); transform: translateY(-3px); }
+        .card .bar { width:32px; height:2px; background:rgba(231,158,20,0.4); transition:width .5s; }
+        .card:hover .bar { width:56px; }
+
+        .step-num {
+            width:28px; height:28px; border-radius:50%;
+            background:#E79E14; color:#0A0A0A;
+            font-weight:900; font-size:12px;
+            display:flex; align-items:center; justify-content:center; flex-shrink:0;
+        }
+
+        .tag {
+            padding:5px 12px; border-radius:999px; font-size:12px; font-weight:700;
+            background:rgba(231,158,20,0.08); border:1px solid rgba(231,158,20,0.2); color:#E79E14;
+        }
+
+        table.cmp { width:100%; border-collapse: collapse; }
+        table.cmp th, table.cmp td { padding:14px 16px; text-align:left; font-size:13px; border-bottom:1px solid rgba(255,255,255,0.06); }
+        table.cmp th { color:#E79E14; font-weight:900; text-transform:uppercase; font-size:11px; letter-spacing:0.1em; }
+        table.cmp td { color:rgba(255,255,255,0.6); }
+        table.cmp tr:last-child td { border-bottom:none; }
+        table.cmp td.hl { color:#fff; font-weight:700; }
+
+        /* ─── Presentation-style slide navigation (PowerPoint-like) ─── */
+        html, body { overflow-x: hidden; }
+        #slides-viewport { overflow: hidden; }
+        #slides-track {
+            display: flex;
+            transition: transform .5s cubic-bezier(.4,0,.2,1);
+            will-change: transform;
+        }
+        .slide {
+            width: 100vw;
+            flex-shrink: 0;
+            min-height: 100vh;
+            max-height: 100vh;
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+
+        #deck-prev:disabled, #deck-next:disabled { opacity: 0.25; pointer-events: none; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col bg-el-black text-el-white">
+
+<!-- ─── NAV ──────────────────────────────────────────── -->
+<header class="fixed top-0 w-full z-50" style="background:rgba(10,10,10,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.05);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20 relative">
+            <a href="/" class="flex items-center gap-3">
+                <span class="font-black text-lg tracking-tight">Educ <span class="gradient-text">Lead</span></span>
+            </a>
+            <button onclick="toggleWa()" class="font-black text-xs uppercase tracking-wide px-4 py-2.5 rounded-lg transition-all" style="background:#E79E14;color:#0A0A0A;">
+                Suporte
+            </button>
+        </div>
+    </div>
+</header>
+
+<main class="flex-grow">
+<div id="slides-viewport">
+<div id="slides-track">
+
+<!-- ─── HERO ─────────────────────────────────────────── -->
+<section id="hero" class="slide flex items-center justify-center pt-36 pb-12 bg-el-black">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
+        <p class="text-el-yellow text-xs font-black uppercase tracking-[0.35em] mb-5">Proposta Comercial · IA para Captação</p>
+        <h1 class="font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tighter uppercase mb-6">
+            Embaixador<br>
+            <span class="gradient-text">Virtual</span><br>
+            Colégio Uno Sales
+        </h1>
+        <p class="text-white/50 text-lg md:text-xl font-light max-w-2xl mx-auto">
+            Como Inteligência Artificial reduz custos, multiplica conteúdo e domina o Setor Leste Vila Nova — sem estúdio, sem ator, sem depender da agenda de professor ou diretor.
+        </p>
+    </div>
+</section>
+
+<!-- ─── 1. O PROBLEMA ──────────────────────────────────── -->
+<section id="problema" class="slide py-20 bg-[#0D0D0D]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <p class="text-el-yellow text-xs font-black uppercase tracking-[0.35em] mb-3">O Problema</p>
+            <h2 class="font-black text-3xl md:text-4xl uppercase tracking-tight">
+                O Modelo <span class="gradient-text">Tradicional</span> Está Morrendo
+            </h2>
+            <p class="text-white/40 mt-3 text-sm max-w-2xl mx-auto">Folder, outdoor e post estático no Instagram custam caro e não falam a língua de quem decide a matrícula: Gerações Z e Alpha vivem em vídeo vertical diário — não em anúncio parado.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="card group">
+                <div class="flex items-center gap-4 mb-5">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center font-black text-el-black text-sm flex-shrink-0" style="background:#E79E14;">01</div>
+                    <div><h3 class="font-black text-lg uppercase tracking-tight">Custo Alto e Fixo</h3><div class="bar mt-1"></div></div>
+                </div>
+                <p class="text-white/40 text-sm leading-relaxed">Estúdio, agência tradicional e contratação de atores ou influenciadores encarecem cada peça de conteúdo — e o custo não cai com o volume.</p>
+            </div>
+            <div class="card group">
+                <div class="flex items-center gap-4 mb-5">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center font-black text-el-black text-sm flex-shrink-0" style="background:#E79E14;">02</div>
+                    <div><h3 class="font-black text-lg uppercase tracking-tight">Dependência Humana</h3><div class="bar mt-1"></div></div>
+                </div>
+                <p class="text-white/40 text-sm leading-relaxed">Cobrar que professores e alunos gravem vídeos é o maior gargalo do marketing educacional — ninguém quer aparecer na câmera todo dia.</p>
+            </div>
+            <div class="card group">
+                <div class="flex items-center gap-4 mb-5">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center font-black text-el-black text-sm flex-shrink-0" style="background:#E79E14;">03</div>
+                    <div><h3 class="font-black text-lg uppercase tracking-tight">Baixo Volume</h3><div class="bar mt-1"></div></div>
+                </div>
+                <p class="text-white/40 text-sm leading-relaxed">Poucos posts por mês não sustentam o algoritmo de plataformas que exigem publicação diária para gerar alcance.</p>
+            </div>
+            <div class="card group" style="border-color:rgba(231,158,20,0.2);">
+                <div class="flex items-center gap-4 mb-5">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center font-black text-el-black text-sm flex-shrink-0" style="background:#E79E14;">04</div>
+                    <div><h3 class="font-black text-lg uppercase tracking-tight">Alcance Genérico</h3><div class="bar mt-1"></div></div>
+                </div>
+                <p class="text-white/40 text-sm leading-relaxed">Sem hiperlocalização, o conteúdo se perde entre concorrentes que já falam diretamente com o bairro e a cidade.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── 2. A SOLUÇÃO ───────────────────────────────────── -->
+<section id="solucao" class="slide py-20 bg-el-black">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <p class="text-el-yellow text-xs font-black uppercase tracking-[0.35em] mb-3">A Solução</p>
+            <h2 class="font-black text-3xl md:text-4xl uppercase tracking-tight">
+                AI-born IPs na <span class="gradient-text">Educação</span>
+            </h2>
+            <p class="text-white/40 mt-3 text-sm max-w-2xl mx-auto">Um personagem 100% criado por IA — "Estudante Virtual", "Professor Mentor" ou mascote 3D do Uno Sales — que revoluciona a comunicação porque é patrimônio da marca: não se forma, não pede aumento, não muda de emprego.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div class="card group">
+                <div class="flex items-center gap-4 mb-5">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center font-black text-el-black text-sm flex-shrink-0" style="background:#E79E14;">01</div>
+                    <div><h3 class="font-black text-lg uppercase tracking-tight">Estudante Virtual</h3><div class="bar mt-1"></div></div>
+                </div>
+                <p class="text-white/40 text-sm leading-relaxed">Mostra a rotina do Uno Sales, bastidores e o dia a dia da escola com a linguagem nativa de quem vai se matricular.</p>
+            </div>
+            <div class="card group">
+                <div class="flex items-center gap-4 mb-5">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center font-black text-el-black text-sm flex-shrink-0" style="background:#E79E14;">02</div>
+                    <div><h3 class="font-black text-lg uppercase tracking-tight">Professor Mentor</h3><div class="bar mt-1"></div></div>
+                </div>
+                <p class="text-white/40 text-sm leading-relaxed">Dá dicas de ENEM, vestibular e escolha de carreira — autoridade pedagógica publicada todos os dias, sem depender de agenda.</p>
+            </div>
+            <div class="card group" style="border-color:rgba(231,158,20,0.2);">
+                <div class="flex items-center gap-4 mb-5">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center font-black text-el-black text-sm flex-shrink-0" style="background:#E79E14;">03</div>
+                    <div><h3 class="font-black text-lg uppercase tracking-tight">Mascote 3D</h3><div class="bar mt-1"></div></div>
+                </div>
+                <p class="text-white/40 text-sm leading-relaxed">Identidade visual própria e reconhecível do Uno Sales, presente em todo conteúdo institucional e de captação.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── 3. VANTAGENS COMPETITIVAS ──────────────────────── -->
+<section id="vantagens" class="slide py-20 bg-[#0D0D0D]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <p class="text-el-yellow text-xs font-black uppercase tracking-[0.35em] mb-3">Fator Economia</p>
+            <h2 class="font-black text-3xl md:text-4xl uppercase tracking-tight">
+                Tradicional vs <span class="gradient-text">Fábrica de Conteúdo IA</span>
+            </h2>
+            <p class="text-white/40 mt-3 text-sm max-w-2xl mx-auto">Mesmo investimento, resultado incomparável em volume, disponibilidade e risco.</p>
+        </div>
+
+        <div class="rounded-3xl overflow-hidden mb-8" style="border:1px solid rgba(255,255,255,0.08);">
+            <table class="cmp">
+                <tr><th>Critério</th><th>Modelo Tradicional</th><th>Fábrica de Conteúdo IA</th></tr>
+                <tr><td class="hl">Custo por vídeo</td><td>Alto — estúdio, ator, edição</td><td>Fixo e baixo, escalável</td></tr>
+                <tr><td class="hl">Disponibilidade</td><td>Depende da agenda de terceiros</td><td>24 horas por dia, 7 dias por semana</td></tr>
+                <tr><td class="hl">Volume mensal</td><td>Poucos vídeos por mês</td><td>30 a 60 vídeos por mês</td></tr>
+                <tr><td class="hl">Riscos</td><td>Trabalhista, imagem, desgaste</td><td>Nenhum risco de imagem ou vínculo</td></tr>
+                <tr><td class="hl">Idiomas</td><td>1, com custo extra por idioma</td><td>Multilíngue nativo</td></tr>
+            </table>
+        </div>
+
+        <div class="rounded-3xl overflow-hidden" style="border:1px solid rgba(231,158,20,0.2);">
+            <table class="cmp">
+                <tr><th>Conceito</th><th>Adaptação Uno Sales</th><th>Benefício Direto</th></tr>
+                <tr><td class="hl">AI-born IP</td><td>Embaixador virtual do Uno Sales</td><td>Patrimônio de marca — não se perde com formatura ou troca de professor</td></tr>
+                <tr><td class="hl">Fábrica de vídeos</td><td>Esteira de conteúdo educacional diário</td><td>Fim do "ninguém quer aparecer na câmera"</td></tr>
+                <tr><td class="hl">Distribuição global</td><td>Dominação do Setor Leste Vila Nova</td><td>Algoritmo prioriza quem fala da cidade</td></tr>
+                <tr><td class="hl">Motor flywheel</td><td>Otimização contínua de captação</td><td>Custo por lead menor na temporada de matrículas</td></tr>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- ─── 4. DOMINAÇÃO DE TERRITÓRIO ─────────────────────── -->
+<section id="territorio" class="slide py-20 bg-el-black">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <p class="text-el-yellow text-xs font-black uppercase tracking-[0.35em] mb-3">Geomarketing + IA</p>
+            <h2 class="font-black text-3xl md:text-4xl uppercase tracking-tight">
+                Dominação do <span class="gradient-text">Setor Leste Vila Nova</span>
+            </h2>
+            <p class="text-white/40 mt-3 text-sm max-w-2xl mx-auto">O embaixador virtual fala a língua do bairro — e o algoritmo entrega mais conteúdo para quem está na mesma cidade.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="flex gap-3 items-start bg-[#111] rounded-2xl p-5 border border-white/[0.06]">
+                <span class="step-num mt-0.5"><i class="fas fa-map-pin text-[10px]"></i></span>
+                <div><p class="font-bold text-sm text-white mb-1">Cultura Local</p><p class="text-white/40 text-xs leading-relaxed">Gírias, pontos conhecidos e rotina de Goiânia no discurso do embaixador.</p></div>
+            </div>
+            <div class="flex gap-3 items-start bg-[#111] rounded-2xl p-5 border border-white/[0.06]">
+                <span class="step-num mt-0.5"><i class="fas fa-calendar-days text-[10px]"></i></span>
+                <div><p class="font-bold text-sm text-white mb-1">Eventos do Bairro</p><p class="text-white/40 text-xs leading-relaxed">Comentários e presença em datas e eventos da comunidade do Setor Leste Vila Nova.</p></div>
+            </div>
+            <div class="flex gap-3 items-start bg-[#111] rounded-2xl p-5 border border-white/[0.06]">
+                <span class="step-num mt-0.5"><i class="fas fa-graduation-cap text-[10px]"></i></span>
+                <div><p class="font-bold text-sm text-white mb-1">Provas Regionais</p><p class="text-white/40 text-xs leading-relaxed">Dicas sobre vestibulares locais (UFG, PUC Goiás) que geram busca orgânica na região.</p></div>
+            </div>
+            <div class="flex gap-3 items-start bg-[#111] rounded-2xl p-5 border border-white/[0.06]">
+                <span class="step-num mt-0.5"><i class="fas fa-bullseye text-[10px]"></i></span>
+                <div><p class="font-bold text-sm text-white mb-1">Relevância Algorítmica</p><p class="text-white/40 text-xs leading-relaxed">Mais entregas para o público da mesma cidade — dominação nas buscas locais.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── 5. CICLO DE EXECUÇÃO ───────────────────────────── -->
+<section id="execucao" class="slide py-20 bg-[#0D0D0D]">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <p class="text-el-yellow text-xs font-black uppercase tracking-[0.35em] mb-3">Execução</p>
+            <h2 class="font-black text-3xl md:text-4xl uppercase tracking-tight">
+                Ciclo de <span class="gradient-text">Execução</span> em 3 Etapas
+            </h2>
+        </div>
+
+        <div class="relative space-y-5">
+            <div class="absolute left-5 top-10 bottom-10 w-px" style="background:rgba(231,158,20,0.2);"></div>
+
+            <div class="flex gap-6 items-start group">
+                <div class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center font-black text-sm z-10" style="background:#E79E14;color:#0A0A0A;">01</div>
+                <div class="flex-1 bg-[#111111] rounded-2xl p-6 border border-white/[0.06] group-hover:border-el-yellow/25 transition-all duration-300">
+                    <h3 class="font-black text-base uppercase tracking-tight mb-2">Criação da Identidade</h3>
+                    <p class="text-white/40 text-sm leading-relaxed">Definição de aparência, voz, personalidade e nome do Embaixador Virtual do Uno Sales.</p>
+                </div>
+            </div>
+
+            <div class="flex gap-6 items-start group">
+                <div class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center font-black text-sm z-10" style="background:#E79E14;color:#0A0A0A;">02</div>
+                <div class="flex-1 bg-[#111111] rounded-2xl p-6 border border-white/[0.06] group-hover:border-el-yellow/25 transition-all duration-300">
+                    <h3 class="font-black text-base uppercase tracking-tight mb-2">Produção e Distribuição em Massa</h3>
+                    <p class="text-white/40 text-sm leading-relaxed">Geração diária de vídeos verticais para TikTok, Reels e Shorts, com chamadas de matrícula e avisos.</p>
+                </div>
+            </div>
+
+            <div class="flex gap-6 items-start group">
+                <div class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center font-black text-sm z-10" style="background:#E79E14;color:#0A0A0A;">03</div>
+                <div class="flex-1 bg-[#111111] rounded-2xl p-6 border border-white/[0.06] group-hover:border-el-yellow/25 transition-all duration-300">
+                    <h3 class="font-black text-base uppercase tracking-tight mb-2">Otimização por Dados</h3>
+                    <p class="text-white/40 text-sm leading-relaxed">Testes de ganchos e formatos escalados com base em matrícula e engajamento real, reduzindo o CAC.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── 6. CTA ──────────────────────────────────────────── -->
+<section id="cta" class="slide flex items-center justify-center py-20 bg-el-black">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-el-yellow text-xs font-black uppercase tracking-[0.35em] mb-5">Próximos Passos</p>
+        <h2 class="font-black text-3xl sm:text-4xl md:text-5xl leading-[1.05] tracking-tighter uppercase mb-6">
+            A escola que não se adaptar agora<br>
+            vai <span class="gradient-text">perder território</span>
+        </h2>
+        <p class="text-white/50 text-lg font-light max-w-xl mx-auto mb-10">
+            Enquanto o Uno Sales decide, a concorrência do Setor Leste Vila Nova pode sair na frente. O embaixador virtual é a forma mais rápida e barata de ocupar esse espaço primeiro.
+        </p>
+        <a href="https://wa.me/5562982587808?text=Ol%C3%A1!%20Quero%20implementar%20o%20Embaixador%20Virtual%20com%20IA%20no%20Col%C3%A9gio%20Uno%20Sales."
+           target="_blank" rel="noopener"
+           class="inline-flex items-center gap-3 font-black text-sm uppercase tracking-wider px-7 py-3.5 rounded-xl transition-all hover:opacity-90"
+           style="background:#E79E14;color:#0A0A0A;">
+            Quero Implementar no Uno Sales
+        </a>
+    </div>
+</section>
+
+</div>
+</div>
+</main>
+
+<!-- ─── PRESENTATION NAV (PowerPoint-style) ───────────── -->
+<button id="deck-prev" onclick="deckGo(-1)" aria-label="Slide anterior"
+    class="fixed z-[95] w-12 h-12 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95"
+    style="left:16px; top:50%; transform:translateY(-50%); background:rgba(17,17,17,0.85);border:1px solid rgba(231,158,20,0.25);backdrop-filter:blur(8px);">
+    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="#E79E14" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 18l-6-6 6-6"/></svg>
+</button>
+<button id="deck-next" onclick="deckGo(1)" aria-label="Próximo slide"
+    class="fixed z-[95] w-12 h-12 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95"
+    style="right:16px; top:50%; transform:translateY(-50%); background:rgba(17,17,17,0.85);border:1px solid rgba(231,158,20,0.25);backdrop-filter:blur(8px);">
+    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="#E79E14" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6"/></svg>
+</button>
+<div id="deck-counter" class="fixed z-[95] text-[10px] font-black tracking-widest px-3 py-1.5 rounded-full"
+    style="bottom:20px; left:50%; transform:translateX(-50%); color:rgba(231,158,20,0.85); background:rgba(17,17,17,0.85);border:1px solid rgba(231,158,20,0.2);backdrop-filter:blur(8px);">1/7</div>
+
+<!-- ─── FOOTER ────────────────────────────────────────── -->
+<footer class="py-12" style="background:#050505;border-top:1px solid rgba(255,255,255,0.04);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-5">
+        <div class="flex items-center gap-3">
+            <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#E79E14,#b87a0e);display:flex;align-items:center;justify-content:center;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+                </svg>
+            </div>
+            <span class="font-black text-base tracking-tight text-white">Educ <span class="gradient-text">Lead</span></span>
+        </div>
+        <p class="text-white/15 text-xs text-center uppercase tracking-widest">© 2026 Educ Lead · Colégio Uno Sales</p>
+    </div>
+</footer>
+
+<!-- ─── WHATSAPP POPUP ────────────────────────────────── -->
+<div id="wa-overlay" onclick="closeWa()" class="fixed inset-0 z-[90] bg-black/50 backdrop-blur-sm hidden"></div>
+<div id="wa-popup" class="fixed bottom-24 right-5 z-[100] w-80 rounded-2xl overflow-hidden shadow-2xl hidden">
+    <div class="flex items-center justify-between px-5 py-4" style="background:#25D366;">
+        <div class="flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6 fill-white flex-shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.534 5.845L.054 23.25a.75.75 0 0 0 .917.94l5.562-1.461A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.528-5.218-1.444l-.374-.224-3.876 1.018 1.037-3.78-.245-.39A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            <span class="font-black text-white text-base">Educ Lead</span>
+        </div>
+        <button onclick="closeWa()" class="text-white/80 hover:text-white">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+    </div>
+    <div class="px-5 py-3 text-xs text-white/50 font-semibold uppercase tracking-wider" style="background:#1a1a1a;border-bottom:1px solid rgba(255,255,255,0.07);">Fale com o suporte:</div>
+    <div style="background:#111111;">
+        <a href="https://wa.me/5562982587808?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Embaixador%20Virtual%20com%20IA%20para%20o%20Col%C3%A9gio%20Uno%20Sales." target="_blank" rel="noopener" class="flex items-center justify-between px-5 py-4 hover:bg-white/[0.04] transition-colors" style="text-decoration:none;">
+            <div><p class="font-bold text-white text-sm">Cesar Marçal · Educ Lead</p><p class="text-white/35 text-[10px] uppercase tracking-widest mt-0.5">Clique para iniciar o chat</p></div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6 flex-shrink-0" style="fill:#25D366;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.534 5.845L.054 23.25a.75.75 0 0 0 .917.94l5.562-1.461A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.528-5.218-1.444l-.374-.224-3.876 1.018 1.037-3.78-.245-.39A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        </a>
+    </div>
+</div>
+<button id="wa-btn" onclick="toggleWa()" class="fixed bottom-5 right-5 z-[100] w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-transform hover:scale-110 active:scale-95" style="background:#25D366;box-shadow:0 4px 20px rgba(37,211,102,0.5);">
+    <svg id="wa-icon-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-7 h-7 fill-white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.534 5.845L.054 23.25a.75.75 0 0 0 .917.94l5.562-1.461A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.528-5.218-1.444l-.374-.224-3.876 1.018 1.037-3.78-.245-.39A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    <svg id="wa-icon-close" class="w-6 h-6 text-white hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+</button>
+
+<script>
+function toggleWa() {
+    var popup   = document.getElementById('wa-popup');
+    var overlay = document.getElementById('wa-overlay');
+    var iconO   = document.getElementById('wa-icon-open');
+    var iconC   = document.getElementById('wa-icon-close');
+    var isOpen  = !popup.classList.contains('hidden');
+    popup.classList.toggle('hidden', isOpen);
+    overlay.classList.toggle('hidden', isOpen);
+    iconO.classList.toggle('hidden', !isOpen);
+    iconC.classList.toggle('hidden', isOpen);
+}
+function closeWa() {
+    document.getElementById('wa-popup').classList.add('hidden');
+    document.getElementById('wa-overlay').classList.add('hidden');
+    document.getElementById('wa-icon-open').classList.remove('hidden');
+    document.getElementById('wa-icon-close').classList.add('hidden');
+}
+
+// ─── Presentation-style slide navigation (PowerPoint-like) ──────────
+(function () {
+    var track     = document.getElementById('slides-track');
+    var slides    = Array.prototype.slice.call(document.querySelectorAll('#slides-track > section.slide'));
+    var counterEl = document.getElementById('deck-counter');
+    var prevBtn   = document.getElementById('deck-prev');
+    var nextBtn   = document.getElementById('deck-next');
+    var idx = 0;
+
+    function render() {
+        track.style.transform = 'translateX(-' + (idx * 100) + 'vw)';
+        counterEl.textContent = (idx + 1) + '/' + slides.length;
+        prevBtn.disabled = idx === 0;
+        nextBtn.disabled = idx === slides.length - 1;
+    }
+
+    window.deckGo = function (delta) {
+        idx = Math.max(0, Math.min(slides.length - 1, idx + delta));
+        render();
+    };
+
+    window.deckGoToId = function (id) {
+        var i = slides.findIndex(function (s) { return s.id === id; });
+        if (i !== -1) { idx = i; render(); }
+    };
+
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+            var id = a.getAttribute('href').slice(1);
+            if (slides.some(function (s) { return s.id === id; })) {
+                e.preventDefault();
+                deckGoToId(id);
+            }
+        });
+    });
+
+    window.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); deckGo(1); }
+        if (e.key === 'ArrowLeft'  || e.key === 'PageUp')   { e.preventDefault(); deckGo(-1); }
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>
