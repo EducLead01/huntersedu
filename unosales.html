@@ -65,6 +65,12 @@
             padding:5px 12px; border-radius:999px; font-size:12px; font-weight:700;
             background:rgba(231,158,20,0.08); border:1px solid rgba(231,158,20,0.2); color:#E79E14;
         }
+
+        /* ─── Presentation-style slide navigation (Gamma-like) ─── */
+        html { scroll-snap-type: y proximity; }
+        .slide { min-height: 100vh; scroll-snap-align: start; scroll-margin-top: 80px; box-sizing: border-box; }
+
+        #deck-nav button:disabled { opacity: 0.25; pointer-events: none; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col bg-el-black text-el-white">
@@ -108,7 +114,7 @@
 <main class="flex-grow">
 
 <!-- ─── HERO ─────────────────────────────────────────── -->
-<section class="flex items-center justify-center pt-36 pb-12 bg-el-black">
+<section id="hero" class="slide flex items-center justify-center pt-36 pb-12 bg-el-black">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
 
         <p class="text-el-yellow text-xs font-black uppercase tracking-[0.35em] mb-5">Estratégia 2026</p>
@@ -125,7 +131,7 @@
 </section>
 
 <!-- ─── POSICIONAMENTO DE MARCA ───────────────────────── -->
-<section id="posicionamento" class="py-20 bg-[#0D0D0D]">
+<section id="posicionamento" class="slide py-20 bg-[#0D0D0D]">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="text-center mb-12">
@@ -175,7 +181,7 @@
 </section>
 
 <!-- ─── MARCA PESSOAL ──────────────────────────────────── -->
-<section id="marca-pessoal" class="py-20 bg-el-black">
+<section id="marca-pessoal" class="slide py-20 bg-el-black">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="text-center mb-12">
@@ -245,7 +251,7 @@
 </section>
 
 <!-- ─── TIKTOK ─────────────────────────────────────────── -->
-<section id="tiktok" class="py-20 bg-[#0D0D0D]">
+<section id="tiktok" class="slide py-20 bg-[#0D0D0D]">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="text-center mb-12">
@@ -303,7 +309,7 @@
 </section>
 
 <!-- ─── BLOG DA ESCOLA ─────────────────────────────────── -->
-<section id="blog" class="py-20 bg-el-black">
+<section id="blog" class="slide py-20 bg-el-black">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
             <p class="text-el-yellow text-xs font-black uppercase tracking-[0.35em] mb-3">Conteúdo & SEO</p>
@@ -350,7 +356,7 @@
 </section>
 
 <!-- ─── IMPRENSA ───────────────────────────────────────── -->
-<section id="imprensa" class="py-20 bg-[#0D0D0D]">
+<section id="imprensa" class="slide py-20 bg-[#0D0D0D]">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
             <p class="text-el-yellow text-xs font-black uppercase tracking-[0.35em] mb-3">Assessoria de Imprensa</p>
@@ -420,6 +426,21 @@
 
 </main>
 
+<!-- ─── PRESENTATION NAV (Gamma-style) ────────────────── -->
+<div id="deck-nav" class="fixed z-[95] flex flex-col items-center gap-3" style="right:16px; top:50%; transform:translateY(-50%);">
+    <button id="deck-prev" onclick="deckGo(-1)" aria-label="Slide anterior"
+        class="w-11 h-11 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95"
+        style="background:rgba(17,17,17,0.85);border:1px solid rgba(231,158,20,0.25);backdrop-filter:blur(8px);">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#E79E14" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M18 15l-6-6-6 6"/></svg>
+    </button>
+    <span id="deck-counter" class="text-[10px] font-black tracking-widest" style="color:rgba(231,158,20,0.75);">1/6</span>
+    <button id="deck-next" onclick="deckGo(1)" aria-label="Próximo slide"
+        class="w-11 h-11 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95"
+        style="background:rgba(17,17,17,0.85);border:1px solid rgba(231,158,20,0.25);backdrop-filter:blur(8px);">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#E79E14" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+    </button>
+</div>
+
 <!-- ─── FOOTER ────────────────────────────────────────── -->
 <footer class="py-12" style="background:#050505;border-top:1px solid rgba(255,255,255,0.04);">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-5">
@@ -478,6 +499,43 @@ function closeWa() {
     document.getElementById('wa-icon-open').classList.remove('hidden');
     document.getElementById('wa-icon-close').classList.add('hidden');
 }
+
+// ─── Presentation-style slide navigation (Gamma-like) ───────────────
+(function () {
+    var slides    = Array.prototype.slice.call(document.querySelectorAll('main > section.slide'));
+    var counterEl = document.getElementById('deck-counter');
+    var prevBtn   = document.getElementById('deck-prev');
+    var nextBtn   = document.getElementById('deck-next');
+
+    function currentIndex() {
+        var scrollPos = window.scrollY + 120;
+        var idx = 0;
+        slides.forEach(function (s, i) {
+            if (s.offsetTop <= scrollPos) idx = i;
+        });
+        return idx;
+    }
+
+    function updateUI() {
+        var idx = currentIndex();
+        counterEl.textContent = (idx + 1) + '/' + slides.length;
+        prevBtn.disabled = idx === 0;
+        nextBtn.disabled = idx === slides.length - 1;
+    }
+
+    window.deckGo = function (delta) {
+        var idx = Math.max(0, Math.min(slides.length - 1, currentIndex() + delta));
+        slides[idx].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+
+    window.addEventListener('scroll', updateUI, { passive: true });
+    window.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowDown' || e.key === 'PageDown') { e.preventDefault(); deckGo(1); }
+        if (e.key === 'ArrowUp'   || e.key === 'PageUp')   { e.preventDefault(); deckGo(-1); }
+    });
+
+    updateUI();
+})();
 </script>
 
 </body>
